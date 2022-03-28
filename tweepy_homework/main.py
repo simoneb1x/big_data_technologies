@@ -8,18 +8,15 @@ client = tweepy.Client(bearer_token=config.bearer_token,
               access_token_secret=config.access_token_secret
               )
 
-recent_tweets_about_oscar = client.search_recent_tweets(
-                                "#Oscar",
-                                max_results=10
-                            )
+recent_tweets_about_oscar = client.search_recent_tweets("#Oscar", max_results=10)
+tweet_number = 1
 
-tweets_array = []
-
-for elem in recent_tweets_about_oscar:
-    tweets_array.append(elem)
-
-for tweet in recent_tweets_about_oscar[0]:
-    print(tweet.data)
+for elem in recent_tweets_about_oscar.data:
+    temp = elem.data
+    print("+++++++++++++++++++++++++")
+    print("Tweet n.%d" % (tweet_number))
+    print("ID: " + elem.data["id"])
+    print("Text: " + elem.data["text"])
+    print("+++++++++++++++++++++++++")
     print(" ")
-
-print(tweets_array)
+    tweet_number += 1
