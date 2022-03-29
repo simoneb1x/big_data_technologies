@@ -12,7 +12,6 @@ recent_tweets_about_oscar = client.search_recent_tweets("#Oscar", max_results=10
 tweet_number = 1
 
 for elem in recent_tweets_about_oscar.data:
-    temp = elem.data
     print("+++++++++++++++++++++++++")
     print("Tweet n.%d" % (tweet_number))
     print("ID: " + elem.data["id"])
